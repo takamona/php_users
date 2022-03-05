@@ -3,8 +3,8 @@
 //外部ファイルの読み込み
     require_once"User.php";
  //物語開始
-    $kobayashi  =  new User("小林", 18);//インスタンス、オブジェクト
-    $shima = new User("島",49);
+    $kobayashi  =  new User("小林", 18, "male");//インスタンス、オブジェクト
+    $shima = new User("島",49,"male");
     // //小林さんが自己紹介をする
     // $kobayashi->hello();
     // //島さんが自己紹介をする　　
@@ -20,7 +20,7 @@
     $users = array();
     $users[] = $kobayashi;
     $users[] = $shima;
-    $users[] = new User("山田",80);
+    $users[] = new User("山田",80,"female");
     // var_dump($users);
     //ユーザー一覧を表示
     // foreach($users as $user){

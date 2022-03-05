@@ -5,10 +5,12 @@
         // プロパティ
         public  $name;  //　名前
         public  $age;   //　年齢
+        public $gender;//　性別
         //　コンストラクタ
-        public function __construct($name,$age){
+        public function __construct($name,$age,$gender){
             $this->name = $name;
             $this->age = $age;
+            $this->gender= $gender;
             // print "{$this->name}生まれた\n";
         }
         //自己紹介をするメソッド（関数）
