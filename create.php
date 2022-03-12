@@ -1,4 +1,4 @@
 <?php
 // (C)
 print "OK";
-include_once "create_view.php";
+include_once "views/create_view.php";

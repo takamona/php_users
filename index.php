@@ -1,7 +1,7 @@
 <?php
 //コントローラー(C)
 //外部ファイルの読み込み
-    require_once"User.php";
+    require_once"models/User.php";
  //物語開始
     $kobayashi  =  new User("小林", 18, "male");//インスタンス、オブジェクト
     $shima = new User("島",49,"male");
@@ -30,4 +30,4 @@
     // }
     
     //HTMLファイルを表示
-    include_once "index.view.php";
+    include_once "views/index.view.php";

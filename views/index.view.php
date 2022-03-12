@@ -2,7 +2,7 @@
 <html lang="ja">
     <head>
         <title>ユーザー一覧</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <!--ビュー(V)-->
