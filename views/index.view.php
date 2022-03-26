@@ -7,6 +7,9 @@
     <body>
         <!--ビュー(V)-->
         <h1>ユーザー一覧</h1>
+        <?php if($flash_message !==null): ?>
+        <p><?= $flash_message ?></p>
+        <?php endif; ?>
         <?php if(count($users) !== 0): ?>
         <p>現在のユーザーは<?= count($users) ?>人です</p>
         <?php  foreach($users as $user): ?>
