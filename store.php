@@ -1,5 +1,6 @@
 <?php
     // (C)
+    require_once "filters/csrf_filter.php";
     require_once "models/User.php";
     //セッション開始
     //すべてのファイルで共通して使える情報の保存箱

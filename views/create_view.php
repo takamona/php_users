@@ -15,6 +15,7 @@
             年齢: <input type="text" name="age" value="<?= $user->age?>"><br>
             性別: <input type="radio" name="gender" value="male" <?php $user->gender ==="" || $user->gender==="male" ? print  "checked" :print ""; ?>>男性　
             <input type="radio" name="gender" value="female" <?php $user->gender === "female" ? print "checked" : print ""  ?>>女性<br>
+            <input type="hidden" name= "_token" value="<?= $token ?>">
             <button type="submit">登録</button>
         </form>
         

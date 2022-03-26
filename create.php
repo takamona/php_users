@@ -12,4 +12,6 @@ if($user === null){
     
     
 }
+//CSRF対策　(なりすまし対策)
+$token = session_id();
 include_once "views/create_view.php";
