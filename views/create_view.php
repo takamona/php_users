@@ -2,6 +2,7 @@
 <html lang="ja">
     <head>
         <h1>新規ユーザー登録</h1>
+        <link rel="stylesheet" href="style.css">
         <?php if($errors !== null): ?>
         <ul>
             <?php foreach($errors as $error): ?>
