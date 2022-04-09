@@ -26,16 +26,12 @@
                         <td><?= $message->name ?></td>
                     </tr>
                     <tr>
-                        <th>タイトル</th>
+                        <th>年齢</th>
                         <td><?= $message->title ?></td>
                     </tr>
                     <tr>
-                        <th>内容</th>
+                        <th>性別</th>
                         <td><?= $message->body ?></td>
-                    </tr>
-                    <tr>
-                        <th>画像</th>
-                        <td><img src="upload/<?= $message->image ?>" alt="表示する画像がありません。"></td>
                     </tr>
                 </table>
             </div> 
