@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>ユーザー一覧</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+    <meta charset="UTF-8">
+    <title>ユーザー一覧</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
         <!--ビュー(V)-->
         <h1>ユーザー一覧</h1>
         <?php if($flash_message !==null): ?>
@@ -24,27 +25,25 @@
         <p>ユーザーはまだ一人もいません</p>
         <?php endif;?>
         
-         <?php if($messages !== null): ?>
-                <?php if(count($messages) !== 0): ?> 
+        
                 <table>
                     <tr>
                         <th>ID</th>
                         <th>ユーザ名</th>
                         <th>年齢</th>
                         <th>性別</th>
-                        <th>投稿時間</th>
+                        <th>登録時間</th>
                     </tr>
-                    </tr>
-                    <?php foreach($messages as $message): ?>
+                    <?php foreach($users as $user): ?>
                     <tr>
-                        <td><a href="show.php?id=<?= $message->id ?>"><?= $message->id ?></a></td>
-                        <td><?= $message->name ?></td>
-                        <td><?= $message->title ?></td>
-                        <td><?= $message->body ?></td>
-                        <td><?= $message->created_at ?></td>
+                        <td><a href="show.php?id=<?= $user->id ?>"><?= $user->id ?></a></td>
+                        <td><?= $user->name ?></td>
+                        <td><?= $user->age ?></td>
+                        <td><?= $user->gender   ==="male"? "男性" : "女性"?></td>
+                        <td><?= $user->created_at ?></td>
                     </tr>
                     <?php endforeach; ?>
                 </table>
-        <p><a href="create.php">新規ユーザー登録</a></p>
+        <p><a href="create_users.php">新規ユーザー登録</a></p>
     </body>
 </html>

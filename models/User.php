@@ -38,7 +38,7 @@
         }
         
         // 全テーブル情報を取得するメソッド
-        public static function all(){
+        public static function all(){ 
             try {
                 $pdo = self::get_connection();
                 $stmt = $pdo->query('SELECT * FROM users ORDER BY id DESC');
@@ -52,6 +52,33 @@
                 return 'PDO exception: ' . $e->getMessage();
             }
         }
+        
+        
+        
+        //id値から一件分の投稿データを抜き出すメソッド
+        public static function find($id){
+          try{
+              // データベースに接続
+                $pdo = self::get_connection();
+                // SQL文の準備
+                $stmt = $pdo->prepare('SELECT * FROM users WHERE id=:id');
+                // バインド処理
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // 実行
+                $stmt->execute();
+                // フェッチの結果を、Userクラスのインスタンスにマッピングする
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
+                // 投稿データをUserクラスのインスタンスとして抜き出す
+                $user = $stmt->fetch();
+                // データベースとの接続を切る
+                self::close_connection($pdo, $stmt);
+                // Userクラスのインスタンスを返す
+                return $users;
+            } catch (PDOException $e) {
+                return null;
+            }
+          }  
+          
         
          // データを1件登録するメソッド
         public function save(){

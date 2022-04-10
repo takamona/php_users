@@ -8,10 +8,10 @@
     // フォームから飛んできたidを取得
     $id = $_POST['id'];
     
-    //id値から注目してるMessageインスタンスを取得
-    $message = Message::find($id);
+    //id値から注目してるUserインスタンスを取得
+    $user = User::find($id);
     
-    //Message インスタンスが存在しなければ
+    //User インスタンスが存在しなければ
     if($message === false){
         //空のエラー配列を作成
         $errors = array();
@@ -23,7 +23,7 @@
         exit;
     }else{
         //データベースからデータ削除
-        $flash_message = Message::destroy($id);
+        $flash_message = User::destroy($id);
         //フラッシュメッセージのセット
         $_SESSION['flash_message'] = $flash_message;
         //リダイレクト

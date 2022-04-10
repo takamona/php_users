@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+    <meta charset="UTF-8">
         <h1>新規ユーザー登録</h1>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <?php if($errors !== null): ?>
         <ul>
             <?php foreach($errors as $error): ?>

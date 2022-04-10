@@ -14,12 +14,12 @@ $_SESSION['flash_message'] = null;
 //注目している投稿のＩＤを取得
 $id= $_GET['id'];
 
-//指定されたid値からMessageインスタンスを取得
+//指定されたid値からUserインスタンスを取得
 
-$message = Message::find($id);
+$user = User::find($id);
 
-//Messageインスタンスが存在しなければ
-if($message === false){
+//userインスタンスが存在しなければ
+if($user === false){
     //空のエラー配列を作成
     $errors = array();
     $errors[] = 'そのような投稿は存在しません';
