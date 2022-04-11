@@ -15,7 +15,7 @@
     if($message === false){
         //空のエラー配列を作成
         $errors = array();
-        $errors[] = 'そのような投稿は存在しません';
+        $errors[] = 'そのようなユーザーは存在しません';
         // セッションにエラーメッセージ保存
         $_SESSION['errors'] = $errors;
         //リダイレクト
@@ -23,11 +23,11 @@
         exit;
     }else{
         //データベースからデータ削除
-        $flash_message = User::destroy($id);
+　　　　$flash_message = User::destroy($id);
         //フラッシュメッセージのセット
         $_SESSION['flash_message'] = $flash_message;
         //リダイレクト
-        header('Location:index.php');
+        header('Location: index.php');
         exit;
         
         //viewの表示

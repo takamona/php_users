@@ -38,7 +38,7 @@
         $_SESSION["errors"]= $errors;
         $_SESSION["user"] = $user;
         
-        header("Location: create.php");
+        header("Location: create_users.php");
         exit;
     }
     

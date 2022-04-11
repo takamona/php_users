@@ -73,7 +73,7 @@
                 // データベースとの接続を切る
                 self::close_connection($pdo, $stmt);
                 // Userクラスのインスタンスを返す
-                return $users;
+                return $user;
             } catch (PDOException $e) {
                 return null;
             }
@@ -93,6 +93,29 @@
                 $stmt->execute();
                 self::close_connection($pdo, $stmt);
                 return "新規ユーザー登録が成功しました。";
+                
+            } catch (PDOException $e) {
+                return 'PDO exception: ' . $e->getMessage();
+            }
+        }
+        
+        
+        // ユーザーデータを1件削除するメソッド
+        public static function destroy($id){
+            try {
+                // データベースと接続
+                $pdo = self::get_connection();
+                // SQL文を準備
+                $stmt = $pdo->prepare('DELETE FROM users WHERE id=:id');
+                // バインド処理
+                $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+                // 実行
+                $stmt->execute();
+                // データベースとの接続を切る
+                self::close_connection($pdo, $stmt);
+                
+                // flash_messageを返す
+                return 'id: ' . $id . 'ユーザーを削除しました。';
                 
             } catch (PDOException $e) {
                 return 'PDO exception: ' . $e->getMessage();
