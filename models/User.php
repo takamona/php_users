@@ -105,6 +105,8 @@
             try {
                 // データベースと接続
                 $pdo = self::get_connection();
+                //IDを取得
+                $id = self::find($id)->id;
                 // SQL文を準備
                 $stmt = $pdo->prepare('DELETE FROM users WHERE id=:id');
                 // バインド処理

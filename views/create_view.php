@@ -12,7 +12,7 @@
         </ul>
         <?php endif; ?>
         
-        <form action="store.php" method="POST">
+        <form action="store_users.php" method="POST">
             名前: <input type="text" name="name" value="<?= $user->name?>"><br>
             年齢: <input type="text" name="age" value="<?= $user->age?>"><br>
             性別: <input type="radio" name="gender" value="male" <?php $user->gender ==="" || $user->gender==="male" ? print  "checked" :print ""; ?>>男性　
