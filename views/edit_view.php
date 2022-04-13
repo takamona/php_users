@@ -41,22 +41,23 @@
                     <div class="form-group row">
                         <label class="col-2 col-form-label">年齢</label>
                         <div class="col-10">
-                            <input type="text" class="form-control" name="age" value="<?= $user->age ?>">
+                            <input type="text"  name="gender" class="form-control" name="age" value="<?= $user->age ?>">
                         </div>
                     </div>
                     
                     <!-- 1行 -->
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">性別</label>
-                        <div class="col-10">
-                            <input type="text" class="form-control" name="gender" value="<?= $gender->gender ?>">
+                        <div class="col-10 mb-5">
+                            <input type="radio" class="form-control" name="gender" value="<?=$gender->gender ?>" <?php $user->gender ==="" || $user->gender==="male" ? print "checked" :print""; ?>>男性
+                            <input type="radio" class="form-control" name="gender" value="<?=$gender->gender ?>" <?php $user->gender ==="" || $user->gender==="female"?print "checked" :print ""; ?>>女性
                         </div>
                     </div>
                     
                     
                     <!-- 1行 -->
                     <div class="form-group row">
-                        <div class="offset-sm-2 col-sm-1">
+                        <div class="offset-sm-2 col-sm-1 ">
                             <button type="submit" class="btn btn-primary">更新</button>
                         </div>
                     </div>
@@ -65,7 +66,7 @@
                 <a href="show_users.php?id=<?= $user->id ?>" class="btn btn-primary">ユーザー一覧詳細へ戻る</a>
             </div>
         </div>
-        
+        </div>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS, then Font Awesome -->
@@ -73,6 +74,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
-        <script src="js/script.js"></script>
     </body>
 </html>

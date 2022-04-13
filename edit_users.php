@@ -11,7 +11,7 @@
     $id = $_GET['id'];
     
     //指定されたid値からUserインスタンスを取得
-    $user = User::find("$id");
+    $user = User::find($id);
     
     //Userインスタンスが存在しなければ
     

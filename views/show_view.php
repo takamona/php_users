@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <meta charset="UTF-8">
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        
         <title>ユーザー詳細</title>
     </head>
     <body>
@@ -28,7 +35,7 @@
                     </tr>
                     <tr>
                         <th>性別</th>
-                        <td><?= $user->gender　==="male"? "男性" :"女性" ?></td>
+                        <td><?= $user->gender==="male"? "男性" :"女性" ?></td>
                     </tr>
                     
                     <th>登録時間</th>
