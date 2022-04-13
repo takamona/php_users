@@ -26,7 +26,7 @@
         <?php endif; ?>
         
         <div class="row mt-2">
-        <form action="col-sm-12" action="store.php" method="POST">
+        <form action="col-sm-12" action="store_users.php" method="POST">
             <input type="hidden" name="_token" value="<?= $token ?>">
             <!-- 1行 -->
             
