@@ -23,7 +23,7 @@
       </ul>
       <?php endif; ?>
       <div class="row mt-2">
-        <form class="col-sm-12" action="store_users.php" method="POST">
+        <form class="col-sm-12" action="update_users.php" method="POST">
           <input type="hidden" name="_token" value="<?= $token ?>">
           <input type="hidden" name="id" value="<?= $id ?>">
           <!-- 1行 -->
@@ -37,7 +37,7 @@
           <div class="form-group row">
             <label class="col-2 col-form-label">年齢</label>
             <div class="col-10">
-              <input type="text" name="gender" class="form-control" name="age" value="<?= $user->age ?>">
+              <input type="text" class="form-control" name="age" value="<?= $user->age ?>">
             </div>
           </div>
           <!-- 1行 -->

@@ -73,7 +73,7 @@
                 // 実行
                 $stmt->execute();
                 // フェッチの結果を、Userクラスのインスタンスにマッピングする
-                $stmt->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'User');
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'User');
                 // 投稿データをUserクラスのインスタンスとして抜き出す
                 $user = $stmt->fetch();
                 // データベースとの接続を切る
@@ -81,7 +81,7 @@
                 // Userクラスのインスタンスを返す
                 return $user;
             } catch (PDOException $e) {
-                return;
+                return null;
             }
         }
 

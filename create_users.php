@@ -11,7 +11,7 @@ $user = $_SESSION['user'];
 $_SESSION['user'] = null;
 
 //セッションにUserインスタンスが保存されてなければ
-if ($user === null) {
+if($user === null){
     // 空のインスタンスを作成
         $user = new User();
 }
