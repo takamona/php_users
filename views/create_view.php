@@ -46,7 +46,6 @@
       <input type="radio" name="gender" value="female"
       <?php $user->gender==="female"? print "checked" :print "" ?>>女性
       <br>
-      <input type="hidden" name= "_token" value="<?= $token ?>">
       </div>
       </div>
       <div class="form-group row">
