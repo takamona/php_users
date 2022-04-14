@@ -1,18 +1,18 @@
 <?php
     //Controller
-    
+
     //外部ファイルの読み込み
     require_once 'filters/csrf_filter.php';
     require_once 'models/User.php';
-    
+
     // フォームから飛んできたidを取得
     $id = $_POST['id'];
-    
+
     //id値から注目してるUserインスタンスを取得
     $user = User::find($id);
-    
+
     //User インスタンスが存在しなければ
-    if($user === false){
+    if ($user === false) {
         //空のエラー配列を作成
         $errors = array();
         $errors[] = 'そのようなユーザーは存在しません';
@@ -21,13 +21,13 @@
         //リダイレクト
         header('Location: index.php');
         exit;
-    }else{
+    } else {
         // データベースからデータ削除
         $flash_message = User::destroy($id);
-        
+
         // フラッシュメッセージのセット
         $_SESSION['flash_message'] = $flash_message;
-        
+
         // リダイレクト
         header('Location: index.php');
         exit;
