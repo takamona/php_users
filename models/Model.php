@@ -17,7 +17,7 @@
 
                 return $pdo;
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getMessage();
+                return 'PDO exception: '.$e->getUser();
             }
         }
 
@@ -28,7 +28,7 @@
                 $pdo = null;
                 $stmt = null;
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getMessage();
+                return 'PDO exception: '.$e->getUser();
             }
         }
     }

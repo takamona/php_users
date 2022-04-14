@@ -1,4 +1,5 @@
 <?php
+
     require_once 'models/Model.php';
     // モデル(M)
     // ユーザーの設計図
@@ -55,7 +56,7 @@
                 // Userクラスのインスタンスの配列を返す
                 return $users;
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getMessage();
+                return 'PDO exception: '.$e->getUser();
             }
         }
 
@@ -88,19 +89,38 @@
         public function save()
         {
             try {
+                //データベースと接続
                 $pdo = self::get_connection();
-                $stmt = $pdo->prepare('INSERT INTO users (name, age, gender) VALUES (:name, :age, :gender)');
+                //新規ユーザー登録の場合
+                if ($this->id === null) {
+                    $stmt = $pdo->prepare('INSERT INTO users (name, age, gender) VALUES (:name, :age, :gender)');
                 // バインド処理
                 $stmt->bindParam(':name', $this->name, PDO::PARAM_STR);
-                $stmt->bindParam(':age', $this->age, PDO::PARAM_INT);
-                $stmt->bindParam(':gender', $this->gender, PDO::PARAM_STR);
+                    $stmt->bindParam(':age', $this->age, PDO::PARAM_INT);
+                    $stmt->bindParam(':gender', $this->gender, PDO::PARAM_STR);
                 // 実行
                 $stmt->execute();
+                //データベースとの接続を切る
                 self::close_connection($pdo, $stmt);
-
+                //flash messageを返す
                 return '新規ユーザー登録が成功しました。';
+                } else {
+                    //更新の場合
+                //SQL文の更新
+                $stmt = $pdo->prepare('UPDATE users SET name= :name, age= :age, gender = :gender WHERE id = :id');
+                //バインド処理
+                $stmt->bindParam(':name', $this->name, PDO::PARAM_STR);
+                    $stmt->bindParam(':age', $this->age, PDO::PARAM_INT);
+                    $stmt->bindParam('gender', $this->gender, PDO::PARAM_STR);
+                //実行
+                $stmt->execute();
+                //データベースとの接続を切る
+                self::close_connection($pdo, $stmt);
+                //fhashmessageを返す
+                return 'id: '. $this->id.'のユーザー情報を更新しました';
+                }
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getMessage();
+                return 'PDO exception: '.$e->getUser();
             }
         }
 
@@ -124,7 +144,7 @@
                 // flash_messageを返す
                 return 'id: '.$id.'ユーザーを削除しました。';
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getMessage();
+                return 'PDO exception: '.$e->getUser();
             }
         }
 
