@@ -17,7 +17,7 @@
 
                 return $pdo;
             } catch (PDOException $e) {
-                return 'PDO exception: '.$e->getUser();
+                return 'PDO exception: '. $e->getUser();
             }
         }
 
